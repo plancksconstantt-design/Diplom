@@ -1,0 +1,392 @@
+/* ===== About Hero ===== */
+.about-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 140px 40px 80px;
+  overflow: hidden;
+}
+
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.about-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  filter: saturate(0.7) contrast(0.95);
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(225, 225, 223, 0.4) 0%, rgba(225, 225, 223, 0.7) 100%);
+  z-index: 1;
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.about-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.about-hero-sub {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--ink);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ===== Story Section ===== */
+.story-section {
+  background: var(--bg);
+  padding: 140px 0;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.story-body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+.story-body em {
+  font-weight: 400;
+}
+
+.story-quote {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink);
+  padding: 32px 0 32px 24px;
+  border-left: 1px solid var(--accent);
+  margin: 40px 0;
+  line-height: 1.5;
+}
+
+.story-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.story-img {
+  overflow: hidden;
+}
+
+.story-img img {
+  width: 100%;
+  height: auto;
+  filter: saturate(0.85);
+  transition: filter 0.6s ease;
+}
+
+.story-img img:hover {
+  filter: saturate(1);
+}
+
+/* ===== Кнопка "Читать историю" в index.html ===== */
+.story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 4px;
+  transition: gap 0.4s ease, border-color 0.4s ease;
+}
+
+.story-link:hover {
+  gap: 20px;
+  border-color: var(--accent);
+}
+
+/* ===== Space Section ===== */
+.space-section {
+  background: var(--paper);
+  padding: 140px 0;
+}
+
+.space-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  margin-top: 60px;
+}
+
+.space-item {
+  padding: 40px;
+  background: var(--bg);
+  border-radius: var(--radius);
+  transition: transform 0.4s ease;
+}
+
+.space-item:hover {
+  transform: translateY(-4px);
+}
+
+.space-icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.space-item h3 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.space-item p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  font-weight: 300;
+}
+
+/* ===== Quote Divider ===== */
+.quote-divider {
+  background: var(--bg-warm);
+  padding: 120px 0;
+  text-align: center;
+}
+
+/* ===== Teachers Detail ===== */
+.teachers-detail {
+  background: var(--bg);
+  padding: 140px 0;
+}
+
+.teachers-detail-list {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.teacher-detail-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.teacher-detail-card:nth-child(even) {
+  direction: rtl;
+}
+
+.teacher-detail-card:nth-child(even) > * {
+  direction: ltr;
+}
+
+.teacher-detail-img {
+  overflow: hidden;
+  height: 500px;
+}
+
+.teacher-detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.8);
+  transition: transform 0.8s ease, filter 0.6s ease;
+}
+
+.teacher-detail-card:hover .teacher-detail-img img {
+  transform: scale(1.04);
+  filter: saturate(1);
+}
+
+.teacher-detail-body h3 {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.1;
+}
+
+.teacher-detail-desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink);
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+/* ===== Values Section ===== */
+.values-section {
+  background: var(--paper);
+  padding: 140px 0;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  margin-top: 60px;
+}
+
+.value-item {
+  padding: 40px;
+  background: var(--bg);
+  border-radius: var(--radius);
+  border-left: 2px solid var(--accent);
+}
+
+.value-num {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.value-item h3 {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.value-item p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  font-weight: 300;
+}
+
+/* ===== Final Quote ===== */
+.final-quote {
+  background: var(--bg-warm);
+  padding: 140px 0;
+  text-align: center;
+}
+
+.final-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 48px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 4px;
+  transition: gap 0.4s ease, border-color 0.4s ease;
+}
+
+.final-cta:hover {
+  gap: 20px;
+  border-color: var(--accent);
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 960px) {
+  .about-hero {
+    padding: 120px 24px 60px;
+    min-height: 60vh;
+  }
+  
+  .story-section,
+  .space-section,
+  .teachers-detail,
+  .values-section,
+  .final-quote {
+    padding: 80px 0;
+  }
+  
+  .story-grid,
+  .teacher-detail-card {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .teacher-detail-card:nth-child(even) {
+    direction: ltr;
+  }
+  
+  .teacher-detail-img {
+    height: 400px;
+  }
+  
+  .space-grid,
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .space-item,
+  .value-item {
+    padding: 28px;
+  }
+  
+  .teacher-detail-body h3 {
+    font-size: 28px;
+  }
+  
+  .quote-divider {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero-title {
+    letter-spacing: -0.5px;
+  }
+  
+  .teacher-detail-img {
+    height: 300px;
+  }
+  
+  .teacher-detail-body h3 {
+    font-size: 24px;
+  }
+  
+  .story-body,
+  .teacher-detail-desc {
+    font-size: 15px;
+  }
+}

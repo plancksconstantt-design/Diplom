@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOTUS 98 — Раскройся в центре движения</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Навигация -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">
+      <span class="logo-word">Lotus</span>
+      <span class="logo-num">98</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#philosophy">Философия</a></li>
+      <li><a href="#teachers">Преподаватели</a></li>
+      <li><a href="#practice">Практики</a></li>
+      <li><a href="#visit">Визит</a></li>
+    </ul>
+    <a href="#visit" class="nav-cta">Записаться</a>
+    <button class="nav-burger" aria-label="Меню">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu">
+    <button class="mobile-close">×</button>
+    <ul>
+      <li><a href="#philosophy">Философия</a></li>
+      <li><a href="#teachers">Преподаватели</a></li>
+      <li><a href="#practice">Практики</a></li>
+      <li><a href="#visit">Визит</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <!-- <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1600&q=80" alt="" /> -->
+       <img src="img/main_02.jpg" alt="" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Проспект Победителей, 98/3 · Минск</p>
+      <h1 class="hero-title reveal">
+        Раскройся<br/>
+        <em>в центре</em><br/>
+        движения
+      </h1>
+      <p class="hero-sub reveal">
+        Йога-студия, где шум проспекта остаётся за дверью.<br/>
+        Тихое место для паузы между работой и домом.
+      </p>
+      <a href="#philosophy" class="hero-link reveal">
+        <span>Узнать больше</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+    <div class="scroll-hint reveal">
+      <span>листайте</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Философия -->
+  <section class="philosophy" id="philosophy">
+    <div class="container">
+      <div class="philosophy-grid">
+        <div class="philosophy-text">
+          <p class="section-eyebrow reveal">Наша история</p>
+          <h2 class="section-title reveal">
+            Лотос<br/>
+            <em>на асфальте</em>
+          </h2>
+          <p class="philosophy-quote reveal">
+            «Город внизу ревел, а люди наверху были абсолютно спокойны»
+          </p>
+          <p class="philosophy-body reveal">
+            Диана Осипова выросла в Малиновке. В двадцать два уехала в Китай преподавать русский — и случайно попала на йога-ретрит на крыше шанхайского небоскрёба.
+          </p>
+          <p class="philosophy-body reveal">
+            Вернувшись в Минск, работала продуктовым дизайнером. Однажды, возвращаясь с работы на такси по проспекту, увидела горящее окно на первом этаже дома 98/3 с вывеской «Аренда». Вышла из машины, позвонила риелтору в одиннадцать вечера и сказала: <em>«Я беру»</em>.
+          </p>
+          <p class="philosophy-body reveal">
+            Так появился этот островок — без белых голых стен, только терракот, фикусы и мягкий свет.
+          </p>
+          <!-- Кнопка теперь ВНУТРИ блока .philosophy-text -->
+          <a href="about.html" class="story-link reveal">
+            <span>Читать полную историю</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="philosophy-visual">
+          <div class="visual-img reveal">
+            <img src="img/main_01.jpg" alt="" />
+          </div>
+          <div class="visual-img reveal" style="margin-top: 24px;">
+            <!-- <img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=800&q=80" alt="" /> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Цитата-разделитель -->
+  <section class="quote-section">
+    <div class="container">
+      <blockquote class="big-quote reveal">
+        <em>Зелёный уголок</em> вместо ресепшена —<br/>
+        кулер с травяным чаем из белорусских сборов<br/>
+        и доска пожеланий на стене.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Преподаватели -->
+  <section class="teachers" id="teachers">
+    <div class="container">
+      <p class="section-eyebrow reveal">Команда</p>
+      <h2 class="section-title reveal">
+        Семь <em>голосов</em><br/>
+        одной студии
+      </h2>
+      <p class="section-sub reveal">
+        Каждый преподаватель — это отдельная история, район Минска и путь к себе.
+      </p>
+
+      <div class="teachers-grid">
+        <article class="teacher-card reveal">
+          <div class="teacher-img">
+            <img src="img/makarevich.jpg" alt="" />
+          </div>
+          <div class="teacher-body">
+            <p class="teacher-nickname">«Дыхание камня»</p>
+            <h3>Игорь Макаревич</h3>
+            <p class="teacher-style">Хатха-йога · 12 лет</p>
+            <p class="teacher-desc">Бывший крановщик. Паническая атака на высоте пятидесяти метров привела его к пранаяме. Заканчивает занятие общим пением мантры Ом.</p>
+          </div>
+        </article>
+
+        <article class="teacher-card reveal">
+          <div class="teacher-img">
+            <img src="img/poleshyk.JPG" alt="" />
+          </div>
+          <div class="teacher-body">
+            <p class="teacher-nickname">«Мама в ресурсе»</p>
+            <h3>Анна Полещук</h3>
+            <p class="teacher-style">Виньяса-флоу · 6 лет</p>
+            <p class="teacher-desc">Мама троих погодок из Зелёного Луга. Приезжает в студию на самокате. Делает сложные последовательности доступными.</p>
+          </div>
+        </article>
+
+        <article class="teacher-card reveal">
+          <div class="teacher-img">
+            <img src="img/koval.JPG" alt="" />
+          </div>
+          <div class="teacher-body">
+            <p class="teacher-nickname">«Звукорежиссёр тела»</p>
+            <h3>Денис Коваль</h3>
+            <p class="teacher-style">Йога-нидра · 4 года</p>
+            <p class="teacher-desc">Бывший звукорежиссёр Белтелерадио. Потерял слух на одно ухо — и ушёл в йогу, чтобы слышать вибрации. Без музыки, только шёпот и тишина.</p>
+          </div>
+        </article>
+
+        <article class="teacher-card reveal">
+          <div class="teacher-img">
+            <img src="img/korzyn.jpg" alt="" />
+          </div>
+          <div class="teacher-body">
+            <p class="teacher-nickname">«Девушка с характером»</p>
+            <h3>Света Корзун</h3>
+            <p class="teacher-style">Аштанга · стретчинг · 5 лет</p>
+            <p class="teacher-desc">Бывший диспетчер МЧС. Чёткие команды, структурные уроки. Живёт на проспекте — видит студию из окна.</p>
+          </div>
+        </article>
+
+        <article class="teacher-card reveal">
+          <div class="teacher-img">
+            <img src="img/grib.JPG" alt="" />
+          </div>
+          <div class="teacher-body">
+            <p class="teacher-nickname">«Ботаник»</p>
+            <h3>Полина Гриб</h3>
+            <p class="teacher-style">Хатха · цигун · 3 года</p>
+            <p class="teacher-desc">Агроном из Ботанического сада. Ставит учеников так, чтобы каждый видел живой лист. «Тянись, как этот росток».</p>
+          </div>
+        </article>
+
+        <article class="teacher-card reveal">
+          <div class="teacher-img">
+            <img src="img/yakubovich.jpg" alt="" />
+          </div>
+          <div class="teacher-body">
+            <p class="teacher-nickname">«Проводник»</p>
+            <h3>Владислав Якубович</h3>
+            <p class="teacher-style">Кундалини · 8 лет</p>
+            <p class="teacher-desc">Три года жил в Индии. Учит снимать стресс без таблеток. К нему ходят топ-менеджеры проспекта.</p>
+          </div>
+        </article>
+
+        <article class="teacher-card reveal">
+          <div class="teacher-img">
+            <img src="img/revako.jpg" alt="" />
+          </div>
+          <div class="teacher-body">
+            <p class="teacher-nickname">«Ангел-хранитель»</p>
+            <h3>Юлия Ревяко</h3>
+            <p class="teacher-style">Йога для беременных · 2 года</p>
+            <p class="teacher-desc">Архитектор, мама двоих. Спроектировала фойе студии — там всегда есть место для коляски. Душа коллектива.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Практики -->
+  <section class="practice" id="practice">
+    <div class="container">
+      <div class="practice-header">
+        <p class="section-eyebrow reveal">Направления</p>
+        <h2 class="section-title reveal">
+          Шесть <em>способов</em><br/>
+          услышать себя
+        </h2>
+      </div>
+      <div class="practice-list">
+        <div class="practice-item reveal">
+          <span class="practice-num">01</span>
+          <div class="practice-info">
+            <h3>Хатха-йога</h3>
+            <p>Классическая практика. Выравнивание тела, работа с дыханием. Для всех уровней.</p>
+          </div>
+          <span class="practice-arrow">→</span>
+        </div>
+        <div class="practice-item reveal">
+          <span class="practice-num">02</span>
+          <div class="practice-info">
+            <h3>Виньяса-флоу</h3>
+            <p>Динамичная последовательность. Движение синхронно с дыханием.</p>
+          </div>
+          <span class="practice-arrow">→</span>
+        </div>
+        <div class="practice-item reveal">
+          <span class="practice-num">03</span>
+          <div class="practice-info">
+            <h3>Аштанга</h3>
+            <p>Структурная силовая практика. Чёткие команды, глубокая работа.</p>
+          </div>
+          <span class="practice-arrow">→</span>
+        </div>
+        <div class="practice-item reveal">
+          <span class="practice-num">04</span>
+          <div class="practice-info">
+            <h3>Йога-нидра</h3>
+            <p>Практика йогического сна. Глубокое расслабление без усилий.</p>
+          </div>
+          <span class="practice-arrow">→</span>
+        </div>
+        <div class="practice-item reveal">
+          <span class="practice-num">05</span>
+          <div class="practice-info">
+            <h3>Кундалини</h3>
+            <p>Работа с дыханием и диафрагмой. Снятие зажимов, работа со стрессом.</p>
+          </div>
+          <span class="practice-arrow">→</span>
+        </div>
+        <div class="practice-item reveal">
+          <span class="practice-num">06</span>
+          <div class="practice-info">
+            <h3>Цигун</h3>
+            <p>Медитативное движение. Энергия через ассоциации и образы.</p>
+          </div>
+          <span class="practice-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Визит / Тарифы -->
+  <section class="visit" id="visit">
+    <div class="container">
+      <div class="visit-grid">
+        <div class="visit-text">
+          <p class="section-eyebrow reveal">Визит</p>
+          <h2 class="section-title reveal">
+            Выбери<br/>
+            <em>свой ритм</em>
+          </h2>
+          <div class="tariffs-list">
+            <div class="tariff reveal">
+              <span class="tariff-name">S</span>
+              <span class="tariff-desc">4 групповых занятия в месяц</span>
+              <span class="tariff-price">120 BYN</span>
+            </div>
+            <div class="tariff reveal">
+              <span class="tariff-name">M</span>
+              <span class="tariff-desc">8 групповых занятий в месяц</span>
+              <span class="tariff-price">220 BYN</span>
+            </div>
+            <div class="tariff reveal">
+              <span class="tariff-name">L</span>
+              <span class="tariff-desc">12 групповых занятий в месяц</span>
+              <span class="tariff-price">300 BYN</span>
+            </div>
+            <div class="tariff reveal">
+              <span class="tariff-name accent">∞</span>
+              <span class="tariff-desc">Безлимит на 30 дней</span>
+              <span class="tariff-price">450 BYN</span>
+            </div>
+          </div>
+          <div class="promo-note reveal">
+            <p class="promo-label">Для соседей по проспекту</p>
+            <p>Работаете рядом? Скидка 20% на утренние практики с 7:00 до 9:00 — для вас и коллеги.</p>
+          </div>
+        </div>
+        <div class="visit-visual reveal">
+          <img src="img/main_02.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section class="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="section-eyebrow reveal">Найти нас</p>
+          <h2 class="section-title reveal">
+            Проспект<br/>
+            <em>Победителей, 98/3</em>
+          </h2>
+          <div class="contact-details reveal">
+            <div class="contact-row">
+              <span class="contact-label">Адрес</span>
+              <p>Проспект Победителей, 98/3, Минск</p>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Телефон</span>
+              <p>+375 29 123-45-67</p>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Часы</span>
+              <p>Пн–Пт · 7:00–22:00<br/>Сб–Вс · 9:00–20:00</p>
+            </div>
+            <div class="contact-row">
+              <span class="contact-label">Почта</span>
+              <p>hello@lotus98.by</p>
+            </div>
+          </div>
+          <div class="contact-socials reveal">
+            <a href="#">Instagram</a>
+            <a href="#">Telegram</a>
+          </div>
+        </div>
+        <div class="contact-visual reveal">
+          <img src="img/stydiya.JPG" alt="" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#" class="footer-logo">
+          <span class="logo-word">Lotus</span>
+          <span class="logo-num">98</span>
+        </a>
+        <p class="footer-tagline">Раскройся в центре движения</p>
+        <p class="footer-copy">© 2026 · Сделано с тишиной</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
