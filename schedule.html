@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Расписание — LOTUS 98</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="schedule.css" />
+</head>
+<body>
+
+  <!-- Навигация -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-word">Lotus</span>
+      <span class="logo-num">98</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#philosophy">Философия</a></li>
+      <li><a href="index.html#teachers">Преподаватели</a></li>
+      <li><a href="schedule.html" class="active">Расписание</a></li>
+      <li><a href="index.html#practice">Практики</a></li>
+      <li><a href="index.html#visit">Визит</a></li>
+    </ul>
+    <a href="index.html#visit" class="nav-cta">Записаться</a>
+    <button class="nav-burger" aria-label="Меню"><span></span><span></span></button>
+  </nav>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu">
+    <button class="mobile-close">×</button>
+    <ul>
+      <li><a href="index.html#philosophy">Философия</a></li>
+      <li><a href="index.html#teachers">Преподаватели</a></li>
+      <li><a href="schedule.html">Расписание</a></li>
+      <li><a href="index.html#practice">Практики</a></li>
+      <li><a href="index.html#visit">Визит</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section class="schedule-hero">
+    <div class="container">
+      <p class="section-eyebrow reveal">Расписание</p>
+      <h1 class="schedule-title reveal">Расписание занятий</h1>
+      <p class="schedule-subtitle reveal">Выберите день и время для вашей практики</p>
+    </div>
+  </section>
+
+  <!-- Календарь и расписание -->
+  <section class="schedule-section">
+    <div class="container">
+      <div class="schedule-layout">
+        
+        <!-- Календарь -->
+        <div class="calendar-block reveal">
+          <div class="calendar-header">
+            <button class="cal-nav" id="prevMonth">←</button>
+            <h2 class="month-year" id="monthYear">Сентябрь 2026</h2>
+            <button class="cal-nav" id="nextMonth">→</button>
+          </div>
+          <div class="calendar" id="calendar"></div>
+        </div>
+
+        <!-- Список занятий -->
+        <div class="classes-block reveal">
+          <h3 class="classes-title" id="selectedDateTitle">Выберите дату</h3>
+          <div class="classes-list" id="classesList">
+            <p class="no-classes">Нажмите на дату в календаре, чтобы увидеть занятия</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Залы -->
+  <section class="rooms-section">
+    <div class="container">
+      <p class="section-eyebrow reveal">Пространства</p>
+      <h2 class="section-title reveal">Наши <em>залы</em></h2>
+      
+      <div class="rooms-grid">
+        <div class="room-card reveal">
+          <div class="room-img"><img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80" alt="" /></div>
+          <div class="room-info">
+            <h3>Лотос</h3>
+            <p>Основной зал · 40 мест</p>
+          </div>
+        </div>
+        <div class="room-card reveal">
+          <div class="room-img"><img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&q=80" alt="" /></div>
+          <div class="room-info">
+            <h3>Бамбук</h3>
+            <p>Камерный зал · 15 мест</p>
+          </div>
+        </div>
+        <div class="room-card reveal">
+          <div class="room-img"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt="" /></div>
+          <div class="room-info">
+            <h3>Луна</h3>
+            <p>Зал для релакса · 20 мест</p>
+          </div>
+        </div>
+        <div class="room-card reveal">
+          <div class="room-img"><img src="https://images.unsplash.com/photo-1593164842264-854604db00ea?w=600&q=80" alt="" /></div>
+          <div class="room-info">
+            <h3>Сад</h3>
+            <p>Светлый зал · 25 мест</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">
+          <span class="logo-word">Lotus</span>
+          <span class="logo-num">98</span>
+        </a>
+        <p class="footer-tagline">Раскройся в центре движения</p>
+        <p class="footer-copy">© 2026 · Сделано с тишиной</p>
+      </div>
+    </div>
+  </footer>
+
+    <script src="script.js"></script>
+  <script>
+    // Данные расписания
+    const scheduleData = {
+      '2026-09-03': [
+        { time: '7:00 — 8:30', practice: 'Хатха-йога', teacher: 'Игорь Макаревич', room: 'Лотос' },
+        { time: '10:00 — 11:30', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Сад' },
+        { time: '19:00 — 20:30', practice: 'Аштанга', teacher: 'Света Корзун', room: 'Бамбук' }
+      ],
+      '2026-09-04': [
+        { time: '8:00 — 9:30', practice: 'Хатха-йога', teacher: 'Полина Гриб', room: 'Сад' },
+        { time: '14:00 — 15:30', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Бамбук' },
+        { time: '20:00 — 21:00', practice: 'Цигун', teacher: 'Полина Гриб', room: 'Луна' }
+      ],
+      '2026-09-05': [
+        { time: '7:00 — 8:30', practice: 'Хатха-йога', teacher: 'Игорь Макаревич', room: 'Лотос' },
+        { time: '18:30 — 20:00', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Лотос' }
+      ],
+      '2026-09-06': [
+        { time: '9:00 — 10:30', practice: 'Для беременных', teacher: 'Юлия Ревяко', room: 'Лотос' },
+        { time: '19:30 — 21:00', practice: 'Кундалини', teacher: 'Владислав Якубович', room: 'Лотос' }
+      ],
+      '2026-09-07': [
+        { time: '7:30 — 9:00', practice: 'Хатха-йога', teacher: 'Полина Гриб', room: 'Сад' },
+        { time: '20:00 — 21:00', practice: 'Йога-нидра', teacher: 'Денис Коваль', room: 'Луна' }
+      ],
+      '2026-09-08': [
+        { time: '10:00 — 11:30', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Лотос' },
+        { time: '17:00 — 18:30', practice: 'Хатха-йога', teacher: 'Игорь Макаревич', room: 'Лотос' }
+      ],
+      '2026-09-09': [
+        { time: '11:00 — 12:30', practice: 'Для мам', teacher: 'Юлия Ревяко', room: 'Лотос' },
+        { time: '18:00 — 19:30', practice: 'Кундалини', teacher: 'Владислав Якубович', room: 'Лотос' }
+      ]
+    };
+
+    let currentDate = new Date(2026, 8, 1);
+    let selectedDate = null;
+
+    function generateCalendar(year, month) {
+      const calendar = document.getElementById('calendar');
+      calendar.innerHTML = '';
+      
+      const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+      document.getElementById('monthYear').textContent = `${monthNames[month]} ${year}`;
+
+      // 1. Добавляем заголовки дней недели (строго 7 штук)
+      const weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+      weekdays.forEach(day => {
+        const el = document.createElement('div');
+        el.className = 'cal-weekday';
+        el.textContent = day;
+        calendar.appendChild(el);
+      });
+
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const startingDay = firstDay.getDay() || 7; // 1 = Пн, 7 = Вс
+
+      // 2. Пустые ячейки до первого дня месяца
+      for (let i = 1; i < startingDay; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.className = 'cal-day empty';
+        calendar.appendChild(emptyCell);
+      }
+
+      // 3. Дни месяца
+      for (let day = 1; day <= lastDay.getDate(); day++) {
+        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const dayCell = document.createElement('div');
+        dayCell.className = 'cal-day';
+        dayCell.textContent = day;
+        
+        const hasClasses = scheduleData[dateStr] && scheduleData[dateStr].length > 0;
+        if (hasClasses) {
+          dayCell.classList.add('has-classes');
+          dayCell.onclick = () => selectDate(dateStr, day);
+        }
+        
+        if (selectedDate === dateStr) {
+          dayCell.classList.add('selected');
+        }
+        
+        calendar.appendChild(dayCell);
+      }
+    }
+
+    function selectDate(dateStr, day) {
+      selectedDate = dateStr;
+      const classes = scheduleData[dateStr] || [];
+      
+      // Красивое название дня недели
+      const dayNames = ['воскресенье', 'понедельник', 'вторник', 'среду', 'четверг', 'пятницу', 'субботу'];
+      const date = new Date(dateStr);
+      const dayName = dayNames[date.getDay()];
+      const monthNames = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+      
+      document.getElementById('selectedDateTitle').textContent = `Занятия на ${dayName} ${day} ${monthNames[date.getMonth()]}`;
+      
+      // Показываем занятия
+      const list = document.getElementById('classesList');
+      if (classes.length === 0) {
+        list.innerHTML = '<p class="no-classes">В этот день занятий нет</p>';
+      } else {
+        list.innerHTML = classes.map(cls => `
+          <div class="class-card">
+            <div class="class-time">${cls.time}</div>
+            <div class="class-info">
+              <h4 class="class-practice">${cls.practice}</h4>
+              <p class="class-teacher">${cls.teacher}</p>
+              <p class="class-room">${cls.room}</p>
+            </div>
+            <button class="book-btn" onclick="bookClass('${cls.practice}', '${cls.time}')">Записаться</button>
+          </div>
+        `).join('');
+      }
+      
+      // Перерисовываем календарь, чтобы обновить класс .selected
+      generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    }
+
+    function bookClass(practice, time) {
+      alert(`Отличный выбор!\n\n${practice}\n${time}\n\nСейчас вы будете перенаправлены к форме записи.`);
+      window.location.href = 'index.html#visit';
+    }
+
+    document.getElementById('prevMonth').addEventListener('click', () => {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    });
+
+    document.getElementById('nextMonth').addEventListener('click', () => {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+    });
+
+    // Инициализация при загрузке
+    generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
+  </script>
+</body>
+</html>

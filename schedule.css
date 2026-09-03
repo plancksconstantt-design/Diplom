@@ -1,0 +1,388 @@
+/* ===== Schedule Hero ===== */
+.schedule-hero {
+  padding: 140px 0 40px;
+  background: var(--bg);
+  text-align: center;
+}
+
+.schedule-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.schedule-subtitle {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ===== Schedule Section ===== */
+.schedule-section {
+  padding: 40px 0 100px;
+  background: var(--bg);
+}
+
+.schedule-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ===== Calendar Block ===== */
+.calendar-block {
+  background: var(--paper);
+  padding: 28px;
+  border-radius: 16px;
+  position: sticky;
+  top: 100px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.month-year {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+  text-transform: capitalize;
+}
+
+.cal-nav {
+  background: transparent;
+  border: 1px solid rgba(42, 40, 38, 0.2);
+  color: var(--ink);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.cal-nav:hover {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+
+/* Жёсткая и ровная сетка календаря */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px; /* Создаёт эффект тонких линий сетки */
+  background: rgba(42, 40, 38, 0.08); /* Цвет линий */
+  border: 1px solid rgba(42, 40, 38, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cal-weekday {
+  background: var(--bg);
+  padding: 14px 0;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+
+.cal-day {
+  background: var(--paper);
+  min-height: 52px; /* Фиксирует высоту, чтобы всё было ровно */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-family: var(--font-serif);
+  color: var(--ink);
+  cursor: default;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.cal-day.empty {
+  background: rgba(225, 225, 223, 0.4);
+}
+
+.cal-day.has-classes {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Точка-индикатор занятий */
+.cal-day.has-classes::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.cal-day.has-classes:hover {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.cal-day.has-classes:hover::after {
+  background: var(--ink);
+}
+
+.cal-day.selected {
+  background: var(--ink) !important;
+  color: var(--bg) !important;
+}
+
+.cal-day.selected::after {
+  background: var(--bg) !important;
+}
+
+/* ===== Classes List ===== */
+.classes-block {
+  background: var(--paper);
+  padding: 40px;
+  border-radius: 16px;
+  min-height: 400px;
+}
+
+.classes-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(42, 40, 38, 0.1);
+  text-transform: capitalize;
+}
+
+.no-classes {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-soft);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.class-card {
+  display: grid;
+  grid-template-columns: 110px 1fr 130px;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  background: var(--bg);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.class-card:hover {
+  transform: translateX(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  border-color: rgba(42, 40, 38, 0.08);
+}
+
+.class-time {
+  font-size: 14px;
+  color: var(--ink-faint);
+  font-weight: 500;
+  font-family: var(--font-sans);
+}
+
+.class-practice {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.class-teacher {
+  font-size: 14px;
+  color: var(--ink-soft);
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.class-room {
+  font-size: 12px;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.book-btn {
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  padding: 12px 20px;
+  border-radius: 100px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  justify-self: end;
+  white-space: nowrap;
+}
+
+.book-btn:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* ===== Rooms Section ===== */
+.rooms-section {
+  background: var(--paper);
+  padding: 100px 0;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.room-card {
+  background: var(--bg);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-6px);
+}
+
+.room-img {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.room-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85);
+  transition: transform 0.6s ease;
+}
+
+.room-card:hover .room-img img {
+  transform: scale(1.05);
+}
+
+.room-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.room-info h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.room-info p {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 1024px) {
+  .schedule-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .calendar-block {
+    position: static;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .rooms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .class-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px;
+  }
+  
+  .class-time {
+    font-size: 13px;
+    order: -1;
+  }
+  
+  .book-btn {
+    justify-self: stretch;
+    width: 100%;
+    text-align: center;
+    margin-top: 8px;
+  }
+  
+  .classes-block {
+    padding: 24px;
+  }
+  
+  .calendar {
+    gap: 1px;
+  }
+  
+  .cal-weekday {
+    padding: 10px 0;
+    font-size: 10px;
+  }
+  
+  .cal-day {
+    min-height: 44px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rooms-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .calendar-block {
+    padding: 20px;
+  }
+  
+  .month-year {
+    font-size: 18px;
+  }
+  
+  .cal-nav {
+    width: 32px;
+    height: 32px;
+  }
+}
