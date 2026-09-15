@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вход или Регистрация · LOTUS 98</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Упрощенная навигация для страницы входа -->
+  <nav class="nav auth-nav">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-word">Lotus</span>
+      <span class="logo-num">98</span>
+    </a>
+    <a href="index.html" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      <span>Вернуться на главную</span>
+    </a>
+  </nav>
+
+  <!-- Основной блок авторизации -->
+  <section class="auth-section">
+    <div class="auth-card reveal">
+      
+      <!-- Переключатели -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-target="login-form">Вход</button>
+        <button class="auth-tab" data-target="register-form">Регистрация</button>
+      </div>
+
+      <!-- Форма Входа -->
+      <form id="login-form" class="auth-form active">
+        <div class="form-group">
+          <label for="login-email">Электронная почта</label>
+          <input type="email" id="login-email" class="form-input" placeholder="hello@lotus98.by" required />
+        </div>
+        <div class="form-group">
+          <label for="login-password">Пароль</label>
+          <input type="password" id="login-password" class="form-input" placeholder="••••••••" required />
+        </div>
+        <div class="form-footer">
+          <a href="#" class="forgot-password">Забыли пароль?</a>
+        </div>
+        <button type="submit" class="auth-btn">Войти в кабинет</button>
+      </form>
+
+            <!-- Форма Регистрации -->
+      <form id="register-form" class="auth-form" action="/register" method="POST">
+        <div class="form-group">
+          <label for="reg-login">Логин</label>
+          <input type="text" id="reg-login" name="login" class="form-input" placeholder="Придумайте логин" required autocomplete="username" />
+        </div>
+        
+        <div class="form-group">
+          <label for="reg-name">Ваше имя</label>
+          <input type="text" id="reg-name" name="name" class="form-input" placeholder="Диана" required autocomplete="name" />
+        </div>
+        
+        <div class="form-group">
+          <label for="reg-phone">Номер телефона</label>
+          <input type="tel" id="reg-phone" name="phone" class="form-input" placeholder="+375 (29) 123-45-67" required autocomplete="tel" />
+        </div>
+        
+        <div class="form-group">
+          <label for="reg-password">Пароль</label>
+          <input type="password" id="reg-password" name="password" class="form-input" placeholder="Минимум 8 символов" required autocomplete="new-password" />
+        </div>
+        
+        <button type="submit" class="auth-btn">Создать аккаунт</button>
+        
+        <p class="auth-disclaimer">
+          Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> студии.
+        </p>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- Подключаем тот же скрипт -->
+  <script src="js/script.js"></script>
+</body>
+</html>
