@@ -499,7 +499,48 @@ section {
 .teacher-card-link:hover {
   transform: translateY(-6px);
 }
+/* ===== Кликабельные элементы практик ===== */
+.practice-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
 
+.practice-item-link .practice-item {
+  /* Наследуем стили из оригинального .practice-item, но добавляем transition */
+  transition: padding-left 0.4s ease, background 0.4s ease;
+}
+
+.practice-item-link:hover .practice-item {
+  padding-left: 16px;
+  background: var(--paper); /* Лёгкий фон при наведении */
+}
+
+.practice-item-link:hover .practice-arrow {
+  transform: translateX(8px);
+  color: var(--ink);
+}
+/* ===== Кликабельные элементы практик ===== */
+.practice-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer; /* ← добавь эту строку */
+}
+
+.practice-item-link .practice-item {
+  transition: padding-left 0.4s ease, background 0.4s ease;
+}
+
+.practice-item-link:hover .practice-item {
+  padding-left: 16px;
+  background: var(--paper);
+}
+
+.practice-item-link:hover .practice-arrow {
+  transform: translateX(8px);
+  color: var(--ink);
+}
 
 
 

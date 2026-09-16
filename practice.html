@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Практика — LOTUS 98</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/practice.css" />
+</head>
+<body>
+
+  <!-- Навигация -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-word">Lotus</span>
+      <span class="logo-num">98</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="about.html">Философия</a></li>
+        <li><a href="teachers.html">Преподаватели</a></li>
+        <li><a href="schedule.html">Расписание</a></li>
+        <li><a href="practice.html">Практики</a></li>
+    </ul>
+    <a href="index.html#visit" class="nav-cta">Записаться</a>
+    <button class="nav-burger" aria-label="Меню"><span></span><span></span></button>
+  </nav>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu">
+    <button class="mobile-close">×</button>
+    <ul>
+      <li><a href="index.html#philosophy">Философия</a></li>
+      <li><a href="index.html#teachers">Преподаватели</a></li>
+      <li><a href="schedule.html">Расписание</a></li>
+      <li><a href="index.html#practice">Практики</a></li>
+      <li><a href="index.html#visit">Визит</a></li>
+    </ul>
+  </div>
+
+  <!-- Контент страницы (заполняется через JS) -->
+  <main class="practice-landing" id="practiceContent">
+    <!-- Сюда JavaScript вставит красивый текст -->
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">
+          <span class="logo-word">Lotus</span>
+          <span class="logo-num">98</span>
+        </a>
+        <p class="footer-tagline">Раскройся в центре движения</p>
+        <p class="footer-copy">© 2026 · Сделано с тишиной</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // База данных текстов для каждой практики
+    const practicesDB = {
+      hatha: {
+        title: 'Хатха-йога',
+        subtitle: 'Искусство баланса тела и ума',
+        intro: 'Хатха-йога — это фундамент. Здесь нет гонки за сложными позами. Это практика глубокого внимания к тому, как вы дышите, как стоите, как чувствуете границы своего тела. Мы работаем с выравниванием, используя пропсы (блоки, ремни, болстеры), чтобы каждая асана была доступной и безопасной.',
+        forWho: [
+          'Для тех, кто только начинает свой путь в йоге',
+          'Для тех, кто хочет снять хроническое напряжение в спине и шее',
+          'Для тех, кто ищет практику без спешки и соревновательности'
+        ],
+        benefits: 'Вы научитесь слышать сигналы своего тела, улучшите осанку и обретёте внутреннюю опору, которая останется с вами за пределами коврика.',
+        bring: 'Удобная одежда, не скользящая на коврике. Если у вас есть свои блоки или ремень — берите их, но в студии всегда есть всё необходимое.'
+      },
+      vinyasa: {
+        title: 'Виньяса-флоу',
+        subtitle: 'Медитация в движении',
+        intro: 'Виньяса — это танец дыхания и движения. Каждая поза перетекает в следующую синхронно с вдохом или выдохом. Это динамичная, но при этом очень осознанная практика, которая разогревает тело изнутри и успокаивает блуждающий ум.',
+        forWho: [
+          'Для тех, кому скучно стоять в одной позе долго',
+          'Для тех, кто хочет развить выносливость и гибкость',
+          'Для тех, кто ищет способ «выключить» мысли после рабочего дня'
+        ],
+        benefits: 'Улучшение координации, укрепление мышечного корсета, выброс эндорфинов и состояние легкой, приятной усталости, которое дарит глубокий сон.',
+        bring: 'Легкая, дышащая одежда. Полотенце (практика может быть интенсивной) и бутылка воды.'
+      },
+      ashtanga: {
+        title: 'Аштанга-йога',
+        subtitle: 'Дисциплина, рождающая свободу',
+        intro: 'Строгая, структурная и очень честная практика. Последовательность асан всегда одинакова, что позволяет вам не думать о том, «что будет дальше», а полностью погрузиться в процесс. Это работа на грани комфорта, где рождается настоящая сила.',
+        forWho: [
+          'Для тех, кто любит чёткие правила и предсказуемость',
+          'Для тех, кто хочет серьезной силовой нагрузки',
+          'Для практикующих с опытом, желающих углубить понимание асан'
+        ],
+        benefits: 'Мощное детокс-воздействие на организм, развитие стального стержня, невероятная гибкость и ясность ума, приходящая через преодоление.',
+        bring: 'Только коврик и открытость к работе. Никаких пропсов, только вы и ваше дыхание.'
+      },
+      nidra: {
+        title: 'Йога-нидра',
+        subtitle: 'Путешествие вглубь себя',
+        intro: 'Йогический сон. Вы ложитесь на спину, закрываете глаза и следуете за мягким голосом преподавателя. Никаких физических усилий. Это практика глубокого расслабления на уровне нервной системы, эквивалентная нескольким часам обычного сна.',
+        forWho: [
+          'Для тех, кто хронически не высыпается и живёт в стрессе',
+          'Для восстановления после травм или операций',
+          'Для всех, кто хочет научиться по-настоящему отдыхать'
+        ],
+        benefits: 'Снижение уровня кортизола, проработка глубинных установок, восстановление эмоционального ресурса и ощущение полной перезагрузки.',
+        bring: 'Тёплые носки и кофту (температура тела во время практики падает). По желанию: маска для сна и свой любимый плед.'
+      },
+      kundalini: {
+        title: 'Кундалини-йога',
+        subtitle: 'Энергия, которая пробуждает',
+        intro: 'Практика, работающая напрямую с нервной системой и энергетическими центрами. Сочетание специфических дыхательных техник (пранаям), мантр и динамических медитаций. Это быстрый способ снять блоки и почувствовать прилив жизненной силы.',
+        forWho: [
+          'Для тех, кто чувствует апатию и нехватку энергии',
+          'Для тех, кто хочет быстро снять эмоциональное напряжение',
+          'Для людей творческих профессий, ищущих источник вдохновения'
+        ],
+        benefits: 'Мгновенное повышение тонуса, очищение ума от навязчивых мыслей, укрепление диафрагмы и обретение эмоциональной стабильности.',
+        bring: 'Одежду белого цвета (по традиции, но не обязательно) и платок на голову (чтобы сфокусировать энергию).'
+      },
+      qigong: {
+        title: 'Цигун',
+        subtitle: 'Гармония с ритмами природы',
+        intro: 'Древняя китайская система работы с энергией «Ци». Это плавные, текучие движения, напоминающие танец, в сочетании с глубоким брюшным дыханием. Цигун не требует физической подготовки, он требует только присутствия.',
+        forWho: [
+          'Для тех, кому противопоказаны интенсивные нагрузки',
+          'Для пожилых людей и тех, кто восстанавливается после болезней',
+          'Для тех, кто ищет мягкую, медитативную практику'
+        ],
+        benefits: 'Улучшение циркуляции крови и лимфы, укрепление суставов, развитие внутреннего спокойствия и чувства связи с окружающим миром.',
+        bring: 'Свободную, не стесняющую движений одежду и обувь на тонкой подошве (или носки).'
+      }
+    };
+
+    // Получаем ID из URL (например, ?id=hatha)
+    const urlParams = new URLSearchParams(window.location.search);
+    const practiceId = urlParams.get('id');
+    const contentDiv = document.getElementById('practiceContent');
+
+    if (practiceId && practicesDB[practiceId]) {
+      const data = practicesDB[practiceId];
+      
+      // Генерируем красивый HTML
+      contentDiv.innerHTML = `
+        <section class="practice-hero">
+          <div class="container">
+            <p class="section-eyebrow reveal">Направление</p>
+            <h1 class="practice-main-title reveal">${data.title}</h1>
+            <p class="practice-main-subtitle reveal">${data.subtitle}</p>
+          </div>
+        </section>
+
+        <section class="practice-body">
+          <div class="container">
+            <div class="text-block reveal">
+              <p class="lead-text">${data.intro}</p>
+            </div>
+
+            <div class="info-grid reveal">
+              <div class="info-card">
+                <h3>Для кого это</h3>
+                <ul class="styled-list">
+                  ${data.forWho.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+              </div>
+              <div class="info-card highlight-card">
+                <h3>Что вы получите</h3>
+                <p>${data.benefits}</p>
+              </div>
+            </div>
+
+            <div class="text-block reveal">
+              <h3>Что взять с собой</h3>
+              <p>${data.bring}</p>
+            </div>
+
+            <div class="cta-block reveal">
+              <p>Готовы попробовать эту практику?</p>
+              <a href="schedule.html" class="btn-secondary">
+            <span>Узнать расписание</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </a>
+            </div>
+          </div>
+        </section>
+      `;
+      
+      // Запускаем анимацию появления для новых элементов
+      setTimeout(() => {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      }, 100);
+
+    } else {
+      // Если ID не найден, перенаправляем на главную
+      window.location.href = 'index.html#practice';
+    }
+  </script>
+</body>
+</html>
