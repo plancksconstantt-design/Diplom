@@ -1,0 +1,247 @@
+/* ===== Teachers Hero ===== */
+.teachers-hero {
+  padding: 140px 0 60px;
+  background: var(--bg);
+  text-align: center;
+}
+
+.teachers-title {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.teachers-subtitle {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: 40px;
+}
+
+/* ===== Custom Select ===== */
+.teacher-selector {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.custom-select {
+  width: 100%;
+  padding: 18px 24px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid rgba(42, 40, 38, 0.15);
+  border-radius: 12px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%232a2826' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 24px center;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(192, 253, 120, 0.2);
+}
+
+/* ===== Teacher Profile ===== */
+.teacher-profile {
+  padding: 80px 0;
+  background: var(--bg);
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 80px;
+}
+
+.profile-image {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.profile-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: saturate(0.9);
+}
+
+.profile-nickname {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-style: italic;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 12px;
+}
+
+.profile-name {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+
+.profile-style {
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(42, 40, 38, 0.1);
+}
+
+.profile-story {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--ink);
+  font-weight: 300;
+}
+
+/* ===== Teacher Schedule ===== */
+.teacher-schedule {
+  background: var(--paper);
+  padding: 48px;
+  border-radius: 16px;
+}
+
+.schedule-heading {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.class-card {
+  display: grid;
+  grid-template-columns: 120px 1fr 120px 130px;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  background: var(--bg);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.class-card:hover {
+  transform: translateX(6px);
+}
+
+.class-date {
+  font-size: 14px;
+  color: var(--ink-faint);
+  text-transform: capitalize;
+}
+
+.class-practice {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.class-room {
+  font-size: 13px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.class-time {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  text-align: right;
+}
+
+.book-btn {
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  padding: 12px 20px;
+  border-radius: 100px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  justify-self: end;
+}
+
+.book-btn:hover {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.no-classes {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-soft);
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* ===== Адаптивность ===== */
+@media (max-width: 900px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .profile-image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .class-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .class-time {
+    text-align: center;
+  }
+  
+  .book-btn {
+    justify-self: stretch;
+    width: 100%;
+  }
+  
+  .teacher-schedule {
+    padding: 24px;
+  }
+}

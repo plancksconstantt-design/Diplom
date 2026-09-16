@@ -85,28 +85,28 @@
       
       <div class="rooms-grid">
         <div class="room-card reveal">
-          <div class="room-img"><img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=600&q=80" alt="" /></div>
+          <div class="room-img"><img src="img/stydiya.JPG" alt="" /></div>
           <div class="room-info">
             <h3>Лотос</h3>
             <p>Основной зал · 40 мест</p>
           </div>
         </div>
         <div class="room-card reveal">
-          <div class="room-img"><img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&q=80" alt="" /></div>
+          <div class="room-img"><img src="img/stydiya_02.jpg" alt="" /></div>
           <div class="room-info">
             <h3>Бамбук</h3>
             <p>Камерный зал · 15 мест</p>
           </div>
         </div>
         <div class="room-card reveal">
-          <div class="room-img"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=80" alt="" /></div>
+          <div class="room-img"><img src="img/stydiya_04.jpg" alt="" /></div>
           <div class="room-info">
             <h3>Луна</h3>
             <p>Зал для релакса · 20 мест</p>
           </div>
         </div>
         <div class="room-card reveal">
-          <div class="room-img"><img src="https://images.unsplash.com/photo-1593164842264-854604db00ea?w=600&q=80" alt="" /></div>
+          <div class="room-img"><img src="img/stydiya_03.jpg" alt="" /></div>
           <div class="room-info">
             <h3>Сад</h3>
             <p>Светлый зал · 25 мест</p>
@@ -130,43 +130,52 @@
     </div>
   </footer>
 
-    <script src="js/script.js"></script>
+      <script src="js/script.js"></script>
   <script>
-    // Данные расписания
+    // Данные расписания на НОЯБРЬ 2026
     const scheduleData = {
-      '2026-09-03': [
+      '2026-11-02': [
         { time: '7:00 — 8:30', practice: 'Хатха-йога', teacher: 'Игорь Макаревич', room: 'Лотос' },
         { time: '10:00 — 11:30', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Сад' },
         { time: '19:00 — 20:30', practice: 'Аштанга', teacher: 'Света Корзун', room: 'Бамбук' }
       ],
-      '2026-09-04': [
+      '2026-11-03': [
         { time: '8:00 — 9:30', practice: 'Хатха-йога', teacher: 'Полина Гриб', room: 'Сад' },
         { time: '14:00 — 15:30', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Бамбук' },
         { time: '20:00 — 21:00', practice: 'Цигун', teacher: 'Полина Гриб', room: 'Луна' }
       ],
-      '2026-09-05': [
+      '2026-11-04': [
         { time: '7:00 — 8:30', practice: 'Хатха-йога', teacher: 'Игорь Макаревич', room: 'Лотос' },
         { time: '18:30 — 20:00', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Лотос' }
       ],
-      '2026-09-06': [
+      '2026-11-05': [
         { time: '9:00 — 10:30', practice: 'Для беременных', teacher: 'Юлия Ревяко', room: 'Лотос' },
         { time: '19:30 — 21:00', practice: 'Кундалини', teacher: 'Владислав Якубович', room: 'Лотос' }
       ],
-      '2026-09-07': [
+      '2026-11-06': [
         { time: '7:30 — 9:00', practice: 'Хатха-йога', teacher: 'Полина Гриб', room: 'Сад' },
         { time: '20:00 — 21:00', practice: 'Йога-нидра', teacher: 'Денис Коваль', room: 'Луна' }
       ],
-      '2026-09-08': [
+      '2026-11-07': [
         { time: '10:00 — 11:30', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Лотос' },
         { time: '17:00 — 18:30', practice: 'Хатха-йога', teacher: 'Игорь Макаревич', room: 'Лотос' }
       ],
-      '2026-09-09': [
+      '2026-11-08': [
         { time: '11:00 — 12:30', practice: 'Для мам', teacher: 'Юлия Ревяко', room: 'Лотос' },
         { time: '18:00 — 19:30', practice: 'Кундалини', teacher: 'Владислав Якубович', room: 'Лотос' }
+      ],
+      '2026-11-09': [
+        { time: '7:00 — 8:30', practice: 'Хатха-йога', teacher: 'Игорь Макаревич', room: 'Лотос' },
+        { time: '19:00 — 20:30', practice: 'Аштанга', teacher: 'Света Корзун', room: 'Бамбук' }
+      ],
+      '2026-11-10': [
+        { time: '10:00 — 11:30', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Сад' },
+        { time: '20:00 — 21:00', practice: 'Йога-нидра', teacher: 'Денис Коваль', room: 'Луна' }
       ]
     };
 
-    let currentDate = new Date(2026, 8, 1);
+    // 10 = Ноябрь (в JavaScript месяцы считаются с 0: 0=Январь, ..., 10=Ноябрь)
+    let currentDate = new Date(2026, 10, 1);
     let selectedDate = null;
 
     function generateCalendar(year, month) {
@@ -221,13 +230,13 @@
       selectedDate = dateStr;
       const classes = scheduleData[dateStr] || [];
       
-      // Красивое название дня недели
+      // Красивое название дня недели и месяца
       const dayNames = ['воскресенье', 'понедельник', 'вторник', 'среду', 'четверг', 'пятницу', 'субботу'];
+      const monthNamesLower = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
       const date = new Date(dateStr);
       const dayName = dayNames[date.getDay()];
-      const monthNames = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
       
-      document.getElementById('selectedDateTitle').textContent = `Занятия на ${dayName} ${day} ${monthNames[date.getMonth()]}`;
+      document.getElementById('selectedDateTitle').textContent = `Занятия на ${dayName} ${day} ${monthNamesLower[date.getMonth()]}`;
       
       // Показываем занятия
       const list = document.getElementById('classesList');

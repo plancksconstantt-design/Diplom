@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Преподаватели — LOTUS 98</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/teachers.css" />
+</head>
+<body>
+
+  <!-- Навигация -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-word">Lotus</span>
+      <span class="logo-num">98</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#philosophy">Философия</a></li>
+      <li><a href="index.html#teachers">Преподаватели</a></li>
+      <li><a href="schedule.html">Расписание</a></li>
+      <li><a href="index.html#practice">Практики</a></li>
+      <li><a href="index.html#visit">Визит</a></li>
+    </ul>
+    <a href="index.html#visit" class="nav-cta">Записаться</a>
+    <button class="nav-burger" aria-label="Меню"><span></span><span></span></button>
+  </nav>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu">
+    <button class="mobile-close">×</button>
+    <ul>
+      <li><a href="index.html#philosophy">Философия</a></li>
+      <li><a href="index.html#teachers">Преподаватели</a></li>
+      <li><a href="schedule.html">Расписание</a></li>
+      <li><a href="index.html#practice">Практики</a></li>
+      <li><a href="index.html#visit">Визит</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section class="teachers-hero">
+    <div class="container">
+      <p class="section-eyebrow reveal">Команда</p>
+      <h1 class="teachers-title reveal">Наши <em>преподаватели</em></h1>
+      <p class="teachers-subtitle reveal">Выберите наставника, чтобы узнать его историю и расписание</p>
+      
+      <!-- Выпадающий список -->
+      <div class="teacher-selector reveal">
+        <select id="teacherSelect" class="custom-select">
+          <option value="" disabled selected>Выберите преподавателя...</option>
+          <option value="igor">Игорь Макаревич</option>
+          <option value="anna">Анна Полещук</option>
+          <option value="denis">Денис Коваль</option>
+          <option value="sveta">Света Корзун</option>
+          <option value="polina">Полина Гриб</option>
+          <option value="vlad">Владислав Якубович</option>
+          <option value="yulia">Юлия Ревяко</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Профиль преподавателя (скрыт по умолчанию) -->
+  <section class="teacher-profile" id="teacherProfile" style="display: none;">
+    <div class="container">
+      <div class="profile-layout reveal">
+        <div class="profile-image">
+          <img id="profileImg" src="" alt="" />
+        </div>
+        <div class="profile-info">
+          <span class="profile-nickname" id="profileNickname"></span>
+          <h2 class="profile-name" id="profileName"></h2>
+          <p class="profile-style" id="profileStyle"></p>
+          <div class="profile-story" id="profileStory"></div>
+        </div>
+      </div>
+
+      <!-- Расписание этого учителя -->
+      <div class="teacher-schedule reveal">
+        <h3 class="schedule-heading">Ближайшие занятия с <em id="scheduleTeacherName"></em></h3>
+        <div class="schedule-list" id="teacherScheduleList">
+          <!-- Заполняется через JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">
+          <span class="logo-word">Lotus</span>
+          <span class="logo-num">98</span>
+        </a>
+        <p class="footer-tagline">Раскройся в центре движения</p>
+        <p class="footer-copy">© 2026 · Сделано с тишиной</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // База данных преподавателей
+    const teachersDB = {
+      igor: {
+        name: 'Игорь Макаревич',
+        nickname: '«Дыхание камня»',
+        style: 'Хатха-йога · 12 лет практики',
+        img: 'img/makarevich.jpg',
+        story: 'Игорь — коренной минчанин, живёт рядом с Немигой. Пять лет он работал крановщиком на высоте. Однажды на высоте 50 метров у него случилась паническая атака, и именно дыхание (пранаяма) спасло ему жизнь. Теперь он учит «не бояться высоты» — как физической, так и жизненной. Его занятие всегда заканчивается 5-минутным общим пением мантры Ом.'
+      },
+      anna: {
+        name: 'Анна Полещук',
+        nickname: '«Мама в ресурсе»',
+        style: 'Виньяса-флоу · 6 лет практики',
+        img: 'img/poleshyk.JPG',
+        story: 'Анна — мама троих погодок, живёт в Зелёном Луге и приезжает в студию на самокате. Её суперсила — делать сложные последовательности так, чтобы они были под силу женщинам, у которых «отваливаются руки» после работы и дома. Она всегда держит в студии сладкий травяной чай для новичков.'
+      },
+      denis: {
+        name: 'Денис Коваль',
+        nickname: '«Звукорежиссёр тела»',
+        style: 'Йога-нидра · 4 года практики',
+        img: 'img/koval.JPG',
+        story: 'Денис по образованию звукорежиссёр, работал на «Белтелерадио». В 30 лет он потерял слух на одно ухо, и чтобы «слышать» вибрации, ушёл в йогу. Он не использует музыку на своих занятиях — только собственный шёпот, шум дождя и тишина. Его пятничные занятия — самые популярные для перезагрузки головы.'
+      },
+      sveta: {
+        name: 'Света Корзун',
+        nickname: '«Девушка с характером»',
+        style: 'Аштанга · стретчинг · 5 лет практики',
+        img: 'img/korzyn.jpg',
+        story: 'Света работала диспетчером в МЧС и привыкла к чётким командам. Поэтому её уроки структурные: никакой воды, только чёткие выравнивания и силовая работа. Она живёт на проспекте Победителей и видит студию из своего окна: «Я пришла сюда на первое занятие просто потому, что было скучно, а теперь это моя жизнь».'
+      },
+      polina: {
+        name: 'Полина Гриб',
+        nickname: '«Ботаник»',
+        style: 'Хатха · цигун · 3 года практики',
+        img: 'img/grib.JPG',
+        story: 'Полина — агроном по образованию, работала в Ботаническом саду Минска. Она привнесла в студию концепцию «Практика у растений»: в зале стоят горшечные монстеры и фикусы, и она ставит учеников так, чтобы каждый видел живой лист. Она лечит энергией движения через ассоциации: «Тянись, как этот росток».'
+      },
+      vlad: {
+        name: 'Владислав Якубович',
+        nickname: '«Проводник»',
+        style: 'Кундалини · 8 лет практики',
+        img: 'img/yakubovich.jpg',
+        story: 'Влад — единственный в команде, кто пришёл в йогу через эзотерику, но потом перешёл в спорт. Три года жил в Индии. Он учит правильно дышать животом, чтобы убрать «зажим» в диафрагме. На его занятия ходят в основном топ-менеджеры проспекта, потому что он учит быстро снимать стресс без таблеток.'
+      },
+      yulia: {
+        name: 'Юлия Ревяко',
+        nickname: '«Ангел-хранитель»',
+        style: 'Йога для беременных · 2 года преподавания',
+        img: 'img/revako.jpg',
+        story: 'Юля — архитектор и мама двоих детей. Она сама столкнулась с тем, что в городе катастрофически не хватает мест, где можно позаниматься с ребёнком. Именно она разработала проект перепланировки фойе нашей студии, чтобы там всегда было просторное место для колясок. Она — настоящая душа коллектива.'
+      }
+    };
+
+    // Данные расписания (те же, что и в schedule.html)
+    const scheduleData = {
+      '2026-11-02': [
+        { time: '7:00 — 8:30', practice: 'Хатха-йога', teacher: 'Игорь Макаревич', room: 'Лотос' },
+        { time: '10:00 — 11:30', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Сад' },
+        { time: '19:00 — 20:30', practice: 'Аштанга', teacher: 'Света Корзун', room: 'Бамбук' }
+      ],
+      '2026-11-03': [
+        { time: '8:00 — 9:30', practice: 'Хатха-йога', teacher: 'Полина Гриб', room: 'Сад' },
+        { time: '14:00 — 15:30', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Бамбук' },
+        { time: '20:00 — 21:00', practice: 'Цигун', teacher: 'Полина Гриб', room: 'Луна' }
+      ],
+      '2026-11-04': [
+        { time: '7:00 — 8:30', practice: 'Хатха-йога', teacher: 'Игорь Макаревич', room: 'Лотос' },
+        { time: '18:30 — 20:00', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Лотос' }
+      ],
+      '2026-11-05': [
+        { time: '9:00 — 10:30', practice: 'Для беременных', teacher: 'Юлия Ревяко', room: 'Лотос' },
+        { time: '19:30 — 21:00', practice: 'Кундалини', teacher: 'Владислав Якубович', room: 'Лотос' }
+      ],
+      '2026-11-06': [
+        { time: '7:30 — 9:00', practice: 'Хатха-йога', teacher: 'Полина Гриб', room: 'Сад' },
+        { time: '20:00 — 21:00', practice: 'Йога-нидра', teacher: 'Денис Коваль', room: 'Луна' }
+      ],
+      '2026-11-07': [
+        { time: '10:00 — 11:30', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Лотос' },
+        { time: '17:00 — 18:30', practice: 'Хатха-йога', teacher: 'Игорь Макаревич', room: 'Лотос' }
+      ],
+      '2026-11-08': [
+        { time: '11:00 — 12:30', practice: 'Для мам', teacher: 'Юлия Ревяко', room: 'Лотос' },
+        { time: '18:00 — 19:30', practice: 'Кундалини', teacher: 'Владислав Якубович', room: 'Лотос' }
+      ],
+      '2026-11-09': [
+        { time: '7:00 — 8:30', practice: 'Хатха-йога', teacher: 'Игорь Макаревич', room: 'Лотос' },
+        { time: '19:00 — 20:30', practice: 'Аштанга', teacher: 'Света Корзун', room: 'Бамбук' }
+      ],
+      '2026-11-10': [
+        { time: '10:00 — 11:30', practice: 'Виньяса-флоу', teacher: 'Анна Полещук', room: 'Сад' },
+        { time: '20:00 — 21:00', practice: 'Йога-нидра', teacher: 'Денис Коваль', room: 'Луна' }
+      ]
+    };
+
+    const teacherSelect = document.getElementById('teacherSelect');
+    const profileSection = document.getElementById('teacherProfile');
+
+    // Функция отображения профиля
+    function renderTeacher(teacherId) {
+      const teacher = teachersDB[teacherId];
+      if (!teacher) return;
+
+      // Заполняем данные профиля
+      document.getElementById('profileImg').src = teacher.img;
+      document.getElementById('profileImg').alt = teacher.name;
+      document.getElementById('profileNickname').textContent = teacher.nickname;
+      document.getElementById('profileName').textContent = teacher.name;
+      document.getElementById('profileStyle').textContent = teacher.style;
+      document.getElementById('profileStory').textContent = teacher.story;
+      document.getElementById('scheduleTeacherName').textContent = teacher.name;
+
+      // Фильтруем расписание
+      const scheduleList = document.getElementById('teacherScheduleList');
+      scheduleList.innerHTML = '';
+      
+      let hasClasses = false;
+      
+      // Сортируем даты, чтобы показать ближайшие
+      const sortedDates = Object.keys(scheduleData).sort();
+      
+      sortedDates.forEach(date => {
+        const classesOnDate = scheduleData[date].filter(cls => cls.teacher === teacher.name);
+        
+        classesOnDate.forEach(cls => {
+          hasClasses = true;
+          const dateObj = new Date(date);
+          const dayStr = dateObj.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long' });
+          
+          const card = document.createElement('div');
+          card.className = 'class-card';
+          card.innerHTML = `
+            <div class="class-date">${dayStr}</div>
+            <div class="class-info">
+              <h4 class="class-practice">${cls.practice}</h4>
+              <p class="class-room">${cls.room}</p>
+            </div>
+            <div class="class-time">${cls.time}</div>
+            <button class="book-btn" onclick="bookClass('${cls.practice}', '${cls.time}')">Записаться</button>
+          `;
+          scheduleList.appendChild(card);
+        });
+      });
+
+      if (!hasClasses) {
+        scheduleList.innerHTML = '<p class="no-classes">В ближайшее время занятий нет. Следите за обновлениями!</p>';
+      }
+
+      // Показываем секцию
+      profileSection.style.display = 'block';
+      
+      // Плавный скролл к профилю
+      setTimeout(() => {
+        profileSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    // Обработчик выбора из списка
+    teacherSelect.addEventListener('change', (e) => {
+      renderTeacher(e.target.value);
+      // Обновляем URL без перезагрузки страницы
+      const newUrl = `${window.location.pathname}?teacher=${e.target.value}`;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+    });
+
+    // Проверка URL при загрузке (если пришли с главной страницы)
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const teacherId = urlParams.get('teacher');
+      
+      if (teacherId && teachersDB[teacherId]) {
+        teacherSelect.value = teacherId;
+        renderTeacher(teacherId);
+      }
+    });
+
+    function bookClass(practice, time) {
+      alert(`Запись на занятие:\n${practice}\n${time}\n\nПереход к форме записи...`);
+      window.location.href = 'index.html#visit';
+    }
+  </script>
+</body>
+</html>

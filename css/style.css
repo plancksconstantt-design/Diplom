@@ -478,6 +478,39 @@ section {
   filter: saturate(1);
 }
 
+
+/* ===== Исправление для кликабельных карточек преподавателей ===== */
+.teacher-card-link {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: inherit; /* Сохраняем исходный цвет текста, чтобы он не стал синим */
+  display: block; /* Делаем ссылку блочным элементом, чтобы она корректно оборачивала карточку */
+  border-radius: var(--radius); /* Скругление, как у самой карточки */
+  transition: transform 0.4s ease; /* Переносим анимацию подъема на саму ссылку */
+}
+
+/* Убираем подчеркивание у конкретных элементов внутри ссылки на всякий случай */
+.teacher-card-link h3,
+.teacher-card-link p {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Эффект при наведении теперь применяется к ссылке-обертке */
+.teacher-card-link:hover {
+  transform: translateY(-6px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .teacher-body {
   padding: 28px;
 }
@@ -595,6 +628,7 @@ section {
 
 .tariffs-list {
   margin-top: 48px;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -1308,6 +1342,47 @@ section {
   transform: translateX(4px);
 }
 
+
+.btn-secondary1 {
+  margin-top: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.btn-secondary1:hover {
+  background: var(--ink);
+  color: var(--bg);
+  transform: translateX(4px);
+}
+
+.btn-secondary1 svg {
+  transition: transform 0.4s ease;
+}
+
+.btn-secondary1:hover svg {
+  transform: translateX(4px);
+}
+
+
+
+
+
+
+
+
+
+
 .teaser-visual {
   display: flex;
   justify-content: center;
@@ -1576,6 +1651,7 @@ section {
 .auth-disclaimer a {
   color: var(--ink-soft);
   text-decoration: underline;
+  
 }
 
 /* Адаптив для авторизации */
