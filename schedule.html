@@ -128,9 +128,69 @@
       </div>
     </div>
   </footer>
-
-      <script src="js/script.js"></script>
+<!-- Модальное окно зала -->
+  <div class="room-modal" id="roomModal">
+    <div class="room-modal-overlay" onclick="closeRoomModal()"></div>
+    <div class="room-modal-content">
+      <button class="room-modal-close" onclick="closeRoomModal()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="room-modal-img">
+        <img id="modalRoomImg" src="" alt="" />
+      </div>
+      <div class="room-modal-body">
+        <span class="room-modal-floor" id="modalRoomFloor"></span>
+        <h3 class="room-modal-title" id="modalRoomTitle"></h3>
+        <p class="room-modal-desc" id="modalRoomDesc"></p>
+        <div class="room-modal-meta">
+          <div class="meta-item">
+            <span class="meta-label">Вместимость</span>
+            <span class="meta-value" id="modalRoomCapacity"></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Особенности</span>
+            <span class="meta-value" id="modalRoomFeatures"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+       <script src="js/script.js"></script>
   <script>
+    // База данных залов
+    const roomsDB = {
+      'Лотос': {
+        img: 'img/stydiya.JPG',
+        floor: '2 этаж',
+        desc: 'Главный зал студии — просторное пространство с высокими потолками и мягким естественным светом. Здесь проходят основные групповые практики, а по вечерам зажигаются свечи для вечерних занятий.',
+        capacity: '40 мест',
+        features: 'Панорамные окна, паркетный пол, система вентиляции'
+      },
+      'Бамбук': {
+        img: 'img/stydiya_02.jpg',
+        floor: '2 этаж',
+        desc: 'Камерный зал для тех, кто ценит тишину и близкий контакт с преподавателем. Идеален для небольших групп, персональных занятий и медитативных практик.',
+        capacity: '15 мест',
+        features: 'Звукоизоляция, приглушённый свет, тёплые тона'
+      },
+      'Луна': {
+        img: 'img/stydiya_04.jpg',
+        floor: '3 этаж',
+        desc: 'Зал для глубокого расслабления и йогического сна. Тёплые пледы, болстеры и мягкий рассеянный свет создают атмосферу полного покоя — здесь время словно останавливается.',
+        capacity: '20 мест',
+        features: 'Тёмные шторы, болстеры, ароматерапия'
+      },
+      'Сад': {
+        img: 'img/stydiya_03.jpg',
+        floor: '2 этаж',
+        desc: 'Светлый зал, наполненный живыми растениями. Монстеры, фикусы и пальмы создают ощущение оранжереи. Здесь Полина, наш «ботаник», проводит практики с акцентом на связь с природой.',
+        capacity: '25 мест',
+        features: 'Много растений, естественный свет, травяной чай'
+      }
+    };
+
     // Данные расписания на НОЯБРЬ 2026
     const scheduleData = {
       '2026-11-02': [
@@ -173,7 +233,6 @@
       ]
     };
 
-    // 10 = Ноябрь (в JavaScript месяцы считаются с 0: 0=Январь, ..., 10=Ноябрь)
     let currentDate = new Date(2026, 10, 1);
     let selectedDate = null;
 
@@ -184,7 +243,6 @@
       const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
       document.getElementById('monthYear').textContent = `${monthNames[month]} ${year}`;
 
-      // 1. Добавляем заголовки дней недели (строго 7 штук)
       const weekdays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
       weekdays.forEach(day => {
         const el = document.createElement('div');
@@ -195,16 +253,14 @@
 
       const firstDay = new Date(year, month, 1);
       const lastDay = new Date(year, month + 1, 0);
-      const startingDay = firstDay.getDay() || 7; // 1 = Пн, 7 = Вс
+      const startingDay = firstDay.getDay() || 7;
 
-      // 2. Пустые ячейки до первого дня месяца
       for (let i = 1; i < startingDay; i++) {
         const emptyCell = document.createElement('div');
         emptyCell.className = 'cal-day empty';
         calendar.appendChild(emptyCell);
       }
 
-      // 3. Дни месяца
       for (let day = 1; day <= lastDay.getDate(); day++) {
         const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
         const dayCell = document.createElement('div');
@@ -229,7 +285,6 @@
       selectedDate = dateStr;
       const classes = scheduleData[dateStr] || [];
       
-      // Красивое название дня недели и месяца
       const dayNames = ['воскресенье', 'понедельник', 'вторник', 'среду', 'четверг', 'пятницу', 'субботу'];
       const monthNamesLower = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
       const date = new Date(dateStr);
@@ -237,7 +292,6 @@
       
       document.getElementById('selectedDateTitle').textContent = `Занятия на ${dayName} ${day} ${monthNamesLower[date.getMonth()]}`;
       
-      // Показываем занятия
       const list = document.getElementById('classesList');
       if (classes.length === 0) {
         list.innerHTML = '<p class="no-classes">В этот день занятий нет</p>';
@@ -248,16 +302,43 @@
             <div class="class-info">
               <h4 class="class-practice">${cls.practice}</h4>
               <p class="class-teacher">${cls.teacher}</p>
-              <p class="class-room">${cls.room}</p>
+              <p class="class-room" onclick="openRoomModal('${cls.room}')">${cls.room}</p>
             </div>
             <button class="book-btn" onclick="bookClass('${cls.practice}', '${cls.time}')">Записаться</button>
           </div>
         `).join('');
       }
       
-      // Перерисовываем календарь, чтобы обновить класс .selected
       generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
     }
+
+    // Открытие модалки зала
+    function openRoomModal(roomName) {
+      const room = roomsDB[roomName];
+      if (!room) return;
+
+      document.getElementById('modalRoomImg').src = room.img;
+      document.getElementById('modalRoomImg').alt = roomName;
+      document.getElementById('modalRoomTitle').textContent = roomName;
+      document.getElementById('modalRoomFloor').textContent = room.floor;
+      document.getElementById('modalRoomDesc').textContent = room.desc;
+      document.getElementById('modalRoomCapacity').textContent = room.capacity;
+      document.getElementById('modalRoomFeatures').textContent = room.features;
+
+      document.getElementById('roomModal').classList.add('active');
+      document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+    }
+
+    // Закрытие модалки
+    function closeRoomModal() {
+      document.getElementById('roomModal').classList.remove('active');
+      document.body.style.overflow = ''; // Возвращаем скролл
+    }
+
+    // Закрытие по Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeRoomModal();
+    });
 
     function bookClass(practice, time) {
       alert(`Отличный выбор!\n\n${practice}\n${time}\n\nСейчас вы будете перенаправлены к форме записи.`);
@@ -274,8 +355,8 @@
       generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
     });
 
-    // Инициализация при загрузке
     generateCalendar(currentDate.getFullYear(), currentDate.getMonth());
   </script>
+    
 </body>
 </html>
