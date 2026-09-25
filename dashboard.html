@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Личный кабинет · LOTUS 98</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  
+  <style>
+    /* ===== Стили личного кабинета ===== */
+    /* .dashboard-section {
+      padding: 140px 0 100px;
+      background: var(--bg);
+      min-height: 100vh;
+    } */
+     .dashboard-section {
+  padding: 140px 0 100px;
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* горизонтальное центрирование детей */
+}
+
+    .dashboard-header {
+      margin-bottom: 48px;
+    }
+
+    .dashboard-greeting {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .dashboard-greeting em {
+      font-style: italic;
+    }
+
+    .dashboard-subtitle {
+      font-size: 14px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      max-width: 800px;
+    }
+
+    .dashboard-card {
+      background: var(--paper);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(42, 40, 38, 0.03);
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(42, 40, 38, 0.1);
+    }
+
+    /* Абонемент */
+    .subscription-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .sub-name {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .sub-remaining {
+      text-align: right;
+    }
+
+    .sub-count {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .sub-count span {
+      font-size: 16px;
+      color: var(--ink-soft);
+      font-family: var(--font-sans);
+    }
+
+    .sub-validity {
+      font-size: 13px;
+      color: var(--ink-faint);
+      margin-top: 4px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: var(--bg);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent); /* Акцентный салатовый #C0FD78 */
+      width: 50%; /* Динамически меняется через JS или inline */
+      transition: width 0.6s ease;
+    }
+
+    /* Ближайшие занятия */
+    .upcoming-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .upcoming-item {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 24px;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(42, 40, 38, 0.1);
+    }
+
+    .upcoming-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .upcoming-item:first-child {
+      padding-top: 0;
+    }
+
+    .class-date {
+      text-align: center;
+    }
+
+    .class-day {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .class-month {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ink-faint);
+      margin-top: 4px;
+    }
+
+    .class-details h4 {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .class-details p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    .btn-cancel {
+      background: transparent;
+      border: 1px solid rgba(42, 40, 38, 0.2);
+      color: var(--ink-soft);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-cancel:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+      background: rgba(42, 40, 38, 0.05);
+    }
+
+    /* Действия */
+    .dashboard-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--ink);
+      color: var(--bg);
+      border: none;
+      padding: 18px 40px;
+      border-radius: 100px;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .btn-primary:hover {
+      background: var(--ink-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(42, 40, 38, 0.1);
+    }
+
+    .logout-link {
+      font-size: 13px;
+      color: var(--ink-faint);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+      padding-bottom: 2px;
+    }
+
+    .logout-link:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    /* Адаптив */
+    @media (max-width: 600px) {
+      .dashboard-section {
+        padding: 100px 0 60px;
+      }
+
+      .dashboard-card {
+        padding: 24px;
+      }
+
+      .upcoming-item {
+        grid-template-columns: 60px 1fr;
+        gap: 16px;
+      }
+
+      .btn-cancel {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: 8px;
+      }
+
+      .subscription-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .sub-remaining {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Навигация -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-word">Lotus</span>
+      <span class="logo-num">98</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="about.html">Философия</a></li>
+        <li><a href="teachers.html">Преподаватели</a></li>
+        <li><a href="schedule.html">Расписание</a></li>
+        <li><a href="practice.html">Практики</a></li>
+        <li><a href="index.html#contact">Адрес</a></li>
+    </ul>
+    <!-- Кнопка профиля выделена как активная -->
+    <a href="auth.html" class="nav-cta" style="background: var(--ink); color: var(--bg);">Выйти</a>
+    <button class="nav-burger" aria-label="Меню">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Мобильное меню -->
+  <div class="mobile-menu">
+    <button class="mobile-close">×</button>
+    <ul>
+      <li><a href="about.html">Философия</a></li>
+      <li><a href="teachers.html">Преподаватели</a></li>
+      <li><a href="schedule.html">Расписание</a></li>
+      <li><a href="practice.html">Практики</a></li>
+      <li><a href="index.html#contact">Адрес</a></li>
+    </ul>
+  </div>
+
+  <!-- Основной контент личного кабинета -->
+  <main class="dashboard-section">
+    <div class="container">
+      
+      <div class="dashboard-header reveal">
+        <p class="section-eyebrow">Личный кабинет</p>
+        <h1 class="dashboard-greeting">Добрый день, <em>Диана</em></h1>
+        <p class="dashboard-subtitle">Рады видеть вас снова. Ваше следующее занятие уже скоро.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        
+        <!-- Карточка абонемента -->
+        <div class="dashboard-card reveal">
+          <h2 class="card-title">Мой абонемент</h2>
+          <div class="subscription-info">
+            <div>
+              <div class="sub-name">Абонемент «M»</div>
+              <div class="sub-validity">Действует до 25 октября 2026</div>
+            </div>
+            <div class="sub-remaining">
+              <div class="sub-count">4 <span>из 8</span></div>
+              <div class="sub-validity">занятий осталось</div>
+            </div>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 50%;"></div>
+          </div>
+        </div>
+
+        <!-- Карточка ближайших занятий -->
+        <div class="dashboard-card reveal">
+          <h2 class="card-title">Ближайшие занятия</h2>
+          <div class="upcoming-list">
+            
+            <div class="upcoming-item">
+              <div class="class-date">
+                <div class="class-day">28</div>
+                <div class="class-month">Сен</div>
+              </div>
+              <div class="class-details">
+                <h4>Виньяса-флоу · 19:00</h4>
+                <p>Преподаватель: Анна Полещук · Зал «Терракот»</p>
+              </div>
+              <button class="btn-cancel" onclick="alert('Здесь будет логика отмены записи')">Отменить</button>
+            </div>
+
+            <div class="upcoming-item">
+              <div class="class-date">
+                <div class="class-day">02</div>
+                <div class="class-month">Окт</div>
+              </div>
+              <div class="class-details">
+                <h4>Йога-нидра · 20:30</h4>
+                <p>Преподаватель: Денис Коваль · Зал «Тишина»</p>
+              </div>
+              <button class="btn-cancel" onclick="alert('Здесь будет логика отмены записи')">Отменить</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Блок действий -->
+        <div class="dashboard-actions reveal">
+          <a href="schedule.html" class="btn-primary">
+            <span>Записаться на новое занятие</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <a href="index.html" class="logout-link">Выйти из аккаунта</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">
+          <span class="logo-word">Lotus</span>
+          <span class="logo-num">98</span>
+        </a>
+        <p class="footer-tagline">Раскройся в центре движения</p>
+        <p class="footer-copy">© 2026 · Сделано с тишиной</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Простой скрипт для анимации появления (если он не подключен глобально)
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      const revealOnScroll = () => {
+        reveals.forEach(el => {
+          const windowHeight = window.innerHeight;
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < windowHeight - 50) {
+            el.classList.add('visible');
+          }
+        });
+      };
+      window.addEventListener('scroll', revealOnScroll);
+      revealOnScroll(); // Запуск при загрузке
+    });
+  </script>
+</body>
+</html>

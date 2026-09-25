@@ -1661,6 +1661,7 @@ section {
 }
 
 .auth-btn {
+  text-align: center;
   width: 100%;
   padding: 16px;
   background: var(--ink);
@@ -1673,6 +1674,7 @@ section {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.4s ease;
+  text-decoration: none;
 }
 
 .auth-btn:hover {
